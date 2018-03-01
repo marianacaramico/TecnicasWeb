@@ -53,6 +53,7 @@ S -->
 		<button type="button" id="ok">Enviar</button>	
 		<div id="div"></div>
 		<script type="text/javascript">
+			"use strict";
 			var button = document.getElementById("ok");
 			button.onclick = function(){
 			var papeisComprados = parseInt(document.getElementById("papeisComprados").value);
