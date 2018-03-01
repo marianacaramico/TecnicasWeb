@@ -37,8 +37,9 @@ N
 ENTRADA
 5 40 2
 SAÍ DA
-S -->
+S 
 
+---------------------------------------------------------------------------------->
 
 <html>
 	<head>
@@ -56,16 +57,16 @@ S -->
 			"use strict";
 			var button = document.getElementById("ok");
 			button.onclick = function(){
-			var papeisComprados = parseInt(document.getElementById("papeisComprados").value);
-			var pessoas = parseInt(document.getElementById("pessoas").value);
-			var papelPorPessoa = parseInt(document.getElementById("papelPorPessoa").value);			
-			var papeisNecessarios = papelPorPessoa * pessoas;
-			var div = document.getElementById("div");
-			if(papeisComprados < papeisNecessarios) {
-				div.textContent = "Não é suficiente :(";
-			} else {
-				div.textContent = "Uhu tem papel pra todo mundo :)";
-			}		
+				var papeisComprados = parseInt(document.getElementById("papeisComprados").value);
+				var pessoas = parseInt(document.getElementById("pessoas").value);
+				var papelPorPessoa = parseInt(document.getElementById("papelPorPessoa").value);			
+				var papeisNecessarios = papelPorPessoa * pessoas;
+				var div = document.getElementById("div");
+				if(papeisComprados < papeisNecessarios) {
+					div.textContent = "Não é suficiente :(";
+				} else {
+					div.textContent = "Uhu tem papel pra todo mundo :)";
+				}		
 			};
 		</script>
 	</body>
