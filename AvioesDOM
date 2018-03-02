@@ -58,8 +58,26 @@ S
 			var button = document.getElementById("ok");
 			button.onclick = function(){
 				var papeisComprados = parseInt(document.getElementById("papeisComprados").value);
+				if(isNaN(papeisComprados) || papeisComprados <= 0){
+					document.getElementById("papeisComprados").style.backgroundColor = "#d23232";
+					return;
+				} else {
+					document.getElementById("papeisComprados").style.backgroundColor = "";
+				}
 				var pessoas = parseInt(document.getElementById("pessoas").value);
-				var papelPorPessoa = parseInt(document.getElementById("papelPorPessoa").value);			
+				if(isNaN(pessoas) || pessoas <= 0){
+					document.getElementById("pessoas").style.backgroundColor = "#d23232";
+					return;
+				}else {
+					document.getElementById("pessoas").style.backgroundColor = "";
+				}
+				var papelPorPessoa = parseInt(document.getElementById("papelPorPessoa").value);	
+				if(isNaN(papelPorPessoa) || papelPorPessoa <= 0){
+					document.getElementById("papelPorPessoa").style.backgroundColor = "#d23232";
+					return;
+				}else {
+					document.getElementById("papelPorPessoa").style.backgroundColor = "";
+				}
 				var papeisNecessarios = papelPorPessoa * pessoas;
 				var div = document.getElementById("div");
 				if(papeisComprados < papeisNecessarios) {
