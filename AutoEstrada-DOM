@@ -127,7 +127,7 @@ SAÍ DA
 	btnCalcular.onclick = function () {
 		var placas = 0;
 		for (var i = 0; i < vetorTxt.length; i++) {
-			switch (vetorTxt[i].value) {
+			switch (vetorTxt[i].value.toUpperCase()) {
 				case "P":
 				case "C":
 					placas += 2;
