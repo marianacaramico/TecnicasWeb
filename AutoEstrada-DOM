@@ -106,6 +106,8 @@ SAÍ DA
 		//for (i = 0; i < vetorTxt.length; i++) {
 		//	divPai.removeChild(vetorTxt[i]);
 		//}
+		
+		//remove os filhos que estiverem já criados
 		while (divPai.firstChild) {
 			divPai.removeChild(divPai.firstChild);
 		}
@@ -114,17 +116,17 @@ SAÍ DA
 		
 		for (i = 0; i < qtde; i++) {
 			vetorTxt[i] = document.createElement("input");
-			vetorTxt[i].setAttribute("type", "text");
+			vetorTxt[i].setAttribute("type", "text");			
 			divPai.appendChild(vetorTxt[i]);
 		}
-		
+		//apaga mensagem de erro, se tiver. poderia colocar um style display:none
 		divResposta.className = "";
 		divResposta.textContent = "";
 	};
 	
 	btnCalcular.onclick = function () {
 		var placas = 0;
-		for (var i = 0; i < txtQtde.value; i++) {
+		for (var i = 0; i < vetorTxt.length; i++) {
 			switch (vetorTxt[i].value) {
 				case "P":
 				case "C":
