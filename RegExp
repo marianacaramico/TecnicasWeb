@@ -1,0 +1,25 @@
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+
+var reg = /\d\d\d\-m\d/;
+123-m4.match(reg);
+
+/ - tem que ter no começo e no final
+\d - dígitos de 0 a 9
+\D - qualquer coisa exceto \d
+\w - [A-Za-z0-9_]
+\W - qualquer coisa exceto \w
+\s - qualquer coisa que seja espaço em branco (espaço, tab, \n)
+\S - qualquer coisa exceto \s
+^ - começo da String
+$ - final da String
+[A-F] - qualquer coisa entre A e F maiúsculos
+[1-5] - qualquer coisa entre 1 e 5
+[asdfghj] - um destes caracteres
+caractere qualquer - inclui o caractere qualquer (inclusive números e símbolos - QUALQUER)
+| - ou
+* - o cara anterior a ele aparece 0 ou mais vezes
++ - o cara anterior a ele aparece 1 ou mais vezes
+? - o cara anterior a ele aparece 0 ou 1 vez
+{100} - o cara anterior a ele aparece 100 vezes
+{100,) - o cara anterior a ele aparece 100 ou mais vezes
+{100,102) - o cara anterior a ele aparece 100, 101 ou 102 vezes
