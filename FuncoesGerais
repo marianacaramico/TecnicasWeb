@@ -45,3 +45,52 @@ x == y  --- == compara os conteúdos
 true
 x === y --- === compara os conteúdos e os tipos
 false
+x != y  --- são diferentes?
+false
+x !== y --- são diferentes, incluindo o tipo?
+true
+
+var x = 8, var y = 9
+var z = (x === y ? 23 : 89)
+89
+
+x = 0
+z = (x ? 23 : 89) --- x é 23? Se não for é 89
+z = 89
+
+x = -12 --- se é 0 é false, se for qualquer coisa além disso é true
+z = (x ? 23 : 89)
+z = 23  --- -12 é true igual 23
+
+z = ("" ? 23 : 89)  --- vazio é false
+z = 89
+
+tudo que é false - "", 0 , null, undefined, NaN
+
+var x = ""
+!x
+true
+!!x
+false
+
+var x = "rafael"
+!!x --- transforma String em boolean
+true
+
+var x = 3, var y = 2
+var z = x/y
+1.5
+z = (x/y) | 0 --- pipe - OR binário
+1
+
+Math  --- mesmas funções do C# e Java
+Math.abs(-13) --- Math.abs() - valor absoluto
+13
+Math.abs(13)
+13
+
+
+EXTRA:
+*brincadeira programming roleta russa*
+var x = 3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!x --- adivinha se é true ou false
