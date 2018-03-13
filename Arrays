@@ -1,0 +1,16 @@
+var a = new Array(10) --- 10 é o tamanho do Array
+a.length --- informa o tamanho do Array
+a.splice(posição, quantidade de elementos após/à direita da posição --- exclui os elementos a partir da tal posição
+        se tiver 3 campos (igual abaixo), o terceiro campo é incluído na posição.
+                se a quantidade for 0, substitui sem excluir ninguém
+                se a quantidade for x, substitui x campos no Array
+        exemplo: x = [0, 1, 2]
+                 x.splice(1, 0, "Mariana")
+                 x = [0, "Mariana", 1, 2]
+                 x.splice(2, 1, false)
+                 x = [0, "Mariana", false, 2]
+a.push("aaa") --- redimensiona o Array, adicionando 1 valor ao final (no caso, um campo com o valor "aaa")
+a.pop --- remove o último campo do Array
+a.join("+") --- concatena os campos do Array
+        exemplo: x.join("+")                    x.join("")
+                 x = "0+Mariana+false+2"        x = "0Marianafalse2"
