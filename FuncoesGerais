@@ -1,0 +1,47 @@
+"andre" > "rafael"
+false
+"andre" < "rafael"        --- 'a' vem antes de 'r'
+true
+
+"andre".toLowerCase()
+"andre"
+"andre".toUpperCase()
+"ANDRE"
+
+"0123456789".substr(2, 5)  --- começa na posição 2, quero que me traga 5 caracteres
+"23456"
+"0123456789".substring(2, 5)  --- começa na posição 2, quero que me traga até o 5º, mas não inclui ele
+"234"
+
+var s = "CEP:012345;Endereco:Rua...."
+var i = s.indexOf(":")
+i = 3
+var f = x.indexOf(";")
+f = 10
+s.substring(i+1, f)
+"012345"
+s.substr(i+1, f-(i+1))
+"012345"
+
+"        aksjsdjkasd jsdjshjdah sjajjsdajd       ".trim()
+"aksjsdjkasd jsdjshjdah sjajjsdajd"
+
+var s = "rafa", var y = "34", var z = "45.8"
+var x = parseInt(s)
+NaN  --- not a number
+x = parseInt(y)
+34
+x = parseInt(z)
+45
+x = parseInt("23Rafinha") --- parseInt() - pega a 1ª sequência numérica até ver uma String e para
+23                                         se o primeiro caractere não for um número já NaN (',' para float)
+
+parseFloat()  --- mesmo que parseInt() mas com número decimal com sua parte quebrada depois do '.' --- não pega depois da vírgula
+String()  --- funciona como se fosse parseString(), porque transforma o parâmetro em String
+
+var x = 23
+var y = "23"
+x == y  --- == compara os conteúdos
+true
+x === y --- === compara os conteúdos e os tipos
+false
