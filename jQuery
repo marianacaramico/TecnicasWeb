@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    
+    <div id="divao">divao</div>
+    <div id="divinho">divinho</div>
+
+    <div class="alerta">div <span>alerta</span></div>
+    <div class="sucesso">div sucesso</div>
+
+    <p class="alerta">p alerta</p>
+    <p class="sucesso">p <b><span>sucesso</span></b></p>
+
+    <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+
+    </script>
+</body>
+</html>
+
+
+$("p span") --- retorna todos os spans que são 'parentes' do p
+$("p>span") --- retorna todos os spans que são 'filhos diretos' do p
+
+$("div").text() --- concatena o texto de todos os divs -------------get
+$("div").text("uau") --- substitui o texto de todos os divs --------set
+$("#divao").text() --- retorna o texto -----------------------------get
+$("#divao").text("aaaa") --- substitui o texto do divao pra aaaa ---set
+
+
