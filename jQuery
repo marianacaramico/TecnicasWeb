@@ -31,4 +31,72 @@ $("div").text("uau") --- substitui o texto de todos os divs --------set
 $("#divao").text() --- retorna o texto -----------------------------get
 $("#divao").text("aaaa") --- substitui o texto do divao pra aaaa ---set
 
+----------------------------------------------------------------------------------------------------------------------------------------
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        table {
+            border: 1px solid black;
+            border-collapse: separate;
+            border-spacing: 3px;
+            font-family: 'Verdana';
+        }
+        td, tr {
+            border: 1px solid #ff6b99;
+        }
+        tbody tr {
+            background-color: #ff6b99;
+            color: #fff;
+            cursor: pointer;
+        }        
+        .click {
+            background-color: #fff;
+            color: #ff6b99;
+            border: 1px solid #ff6b99;
+        }
+    </style>
+</head>
+<body>
+    
+    <table id="tabela">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Telefone</th>
+            </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Rafa</td>
+                <td>rafa@site.com</td>
+                <td>(11) 1234-5678</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        //var tabela = document.getElementById("tabela");
+        //tabela.onclick = function () {
+        //    alert("xxx");
+        //};
+
+        $("#tabela").on("click", "td", function () {
+            var celula = $(this);
+            if (celula.hasClass("click")) {
+                celula.removeClass("click");
+            } else {
+                celula.addClass("click");
+            }        
+        });
+        
+    </script>
+</body>
+</html>
