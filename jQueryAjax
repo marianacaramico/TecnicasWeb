@@ -1,0 +1,16 @@
+$ - jQuery
+$.ajax({
+});
+
+url - query string
+
+success: - 200
+error: - 400 (erro do usuário) ou 500 (erro do servidor)
+
+método: get, post...
+
+dataType: - oque espera receber do server
+data: - oque envia
+cache: false - não busca cachê
+
+[HttpGet] - não tem [FromBody] porque não tem body
