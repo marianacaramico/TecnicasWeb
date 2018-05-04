@@ -1,0 +1,15 @@
+Index.cshtml
+
+@{
+  //aqui tem código em c#
+}
+
+@if(1 != 2){
+  //este é um comando c#
+}
+
+sem '@', código em html.
+
+comentários:
+  html: <!-- comentário -->
+  c#: //comentário
