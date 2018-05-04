@@ -13,3 +13,13 @@ sem '@', código em html.
 comentários:
   html: <!-- comentário -->
   c#: //comentário
+
+nome da View tem que ser igual da Controller
+exemplo: View > Default
+         DefaultController.cs
+         
+página de exibição MVC 5 que está dentro da View tem que ter o nome igual do retorno da ActionResult
+
+dentro da pasta Shared (que está dentro da pasta Views) cria uma página de layout MVC 5
+exemplo: _Mestre.cshtml
+
