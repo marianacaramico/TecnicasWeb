@@ -35,3 +35,5 @@ ActionResult retorna uma View()
 dentro da pasta Shared (que está dentro da pasta Views) cria uma página de layout MVC 5
 exemplo: _Mestre.cshtml
 
+ViewBag - pega valor da Controller e leva pra View
+
