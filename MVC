@@ -1,4 +1,15 @@
-Index.cshtml
+Model - classes
+View - html
+Controller - "trabalha no meio de campo" - pega as requisições e diz quem é o responsável para executar
+
+
+Diferença de web api pra mvc - web api serve pra tecnologia que entendemos como rest - transferir estado de objetos serializados
+                               mvc devolve a view
+                               
+                               
+public ActionResult Index(){
+  return View();              ----- retorna o arquivo Index.cshtml (que deve estar dentro de uma pasta dentro da View)
+}
 
 @{
   //aqui tem código em c#
@@ -14,11 +25,12 @@ comentários:
   html: <!-- comentário -->
   c#: //comentário
 
-nome da View tem que ser igual da Controller
-exemplo: View > Default
-         DefaultController.cs
-         
-página de exibição MVC 5 que está dentro da View tem que ter o nome igual do retorno da ActionResult
+nome da View (pasta dentro da View) tem que ser igual da Controller
+exemplo: View > Default ------ htmls dentro das pastas das Views
+         Controllers > DefaultController.cs
+
+ActionResult retorna uma View()
+
 
 dentro da pasta Shared (que está dentro da pasta Views) cria uma página de layout MVC 5
 exemplo: _Mestre.cshtml
