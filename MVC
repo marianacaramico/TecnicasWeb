@@ -1,6 +1,6 @@
 Model - classes
-View - html
 Controller - "trabalha no meio de campo" - pega as requisições e diz quem é o responsável para executar
+View - html
 
 
 Diferença de web api pra mvc - web api serve pra tecnologia que entendemos como rest - transferir estado de objetos serializados
@@ -10,6 +10,8 @@ Diferença de web api pra mvc - web api serve pra tecnologia que entendemos como
 public ActionResult Index(){
   return View();              ----- retorna o arquivo Index.cshtml (que deve estar dentro de uma pasta dentro da View)
 }
+
+@ gera no server
 
 @{
   //aqui tem código em c#
@@ -35,5 +37,20 @@ ActionResult retorna uma View()
 dentro da pasta Shared (que está dentro da pasta Views) cria uma página de layout MVC 5
 exemplo: _Mestre.cshtml
 
-ViewBag - pega valor da Controller e leva pra View
+ViewBag - pega conteúdo (variável, função) da Controller e leva pra View
+Exemplo:
+Na Controller:
+    ViewBag.OMG = "Oh my god!";
+    
+Na View:
+    string omg = ViewBag.OMG;
+    
+Se a ViewBag não for preenchida na Controller, a mesma é null
+    
+a = "";
+b = null;
+string d = (a ?? b) ---- pega a primeira variável não nula (operador coalesce)
+d = a
 
+
+CUIDADO AO TRABALHAR COM LISTAS. SEMPRE VERIFICAR SE A MESMA NÃO É NULA
