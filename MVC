@@ -52,7 +52,29 @@ b = null;
 string d = (a ?? b) ---- pega a primeira variável não nula (operador coalesce)
 d = a
 
-
 CUIDADO AO TRABALHAR COM LISTAS. SEMPRE VERIFICAR SE A MESMA NÃO É NULA
 
-Página parcial também começa com _, igual páginas de layout
+Página parcial também começa com _Nome, igual páginas de layout
+Na Controller:
+public ActionResult Nome(){
+    return PartialView("_Nome");
+}
+
+Onde for chamar a página parcial:
+Exemplo (exibir modal quando clica no botão, o botão chama a função mostrarModal()):
+<div id="vao"></div>
+<button type="button" onclick="mostrarModal()">Modal</button>
+function mostrarModal(){
+  $.ajax({
+    url: "/Pai/Nome",
+    cache: false,
+    method: "get",
+    success: function(dados){
+      $("#vao").html(dados);
+    },
+    error: function(){
+      alert("Deu erro");
+    }
+  });
+}
+
