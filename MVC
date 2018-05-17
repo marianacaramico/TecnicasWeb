@@ -78,3 +78,7 @@ function mostrarModal(){
   });
 }
 
+$("#vao").html(dados);    --- jQuery
+         ou
+var vao = document.getElementById("vao");
+vao.innerHTML = dados;
