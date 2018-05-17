@@ -78,7 +78,7 @@ function mostrarModal(){
   });
 }
 
-$("#vao").html(dados);    --- jQuery
+$("#vao").html(dados);    --- jQuery << melhor
          ou
 var vao = document.getElementById("vao");
 vao.innerHTML = dados;
