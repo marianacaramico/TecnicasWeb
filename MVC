@@ -1,7 +1,7 @@
 Model - classes
 Controller - "trabalha no meio de campo" - pega as requisições e diz quem é o responsável para executar
 View - html
-
+ 
 
 Diferença de web api pra mvc - web api serve pra tecnologia que entendemos como rest - transferir estado de objetos serializados
                                mvc devolve a view
