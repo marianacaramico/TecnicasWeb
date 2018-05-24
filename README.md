@@ -1,7 +1,4 @@
-# TecnicasWeb
-
-
-Links úteis:
+# TecnicasWeb - Links úteis:
 
   C# ASP.NET: http://carlosrafaelgn.com.br/Aula/BasicoCSharpAspNet.html
 
