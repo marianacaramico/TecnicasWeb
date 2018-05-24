@@ -88,26 +88,35 @@ Exemplo de conexão com banco (dentro da DefaultController)
 
 public ActionResult ListarParaEdicao()
 {
-    using (SqlConnection conn = SqlConn.Abrir())
+    using (SqlConnection conn = SqlConn.Abrir()) ---começa conexão com banco
     {
-        using (SqlCommand cmd = new SqlCommand(@"
-            SELECT Id, Nome
+        using (SqlCommand cmd = new SqlCommand(@"                 --- executa comando do banco
+            SELECT Id, Nome, Endereco, Email, Nascimento, Peso
             FROM tbPessoa
-            ORDER BY Nome ASC
+            WHERE Id = @Id
             ", conn))
         {
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            cmd.Parameters.AddWithValue("@Id", id);
+            using (SqlDataReader reader = cmd.ExecuteReader()) ---executa o "leitor" do banco(vê se no banco tem coisa)
             {
-                List<Pessoa> lista = new List<Pessoa>();
-                while (reader.Read() == true)
+                Pessoa pessoa;
+                if (reader.Read() == true) ---se tiver coisa == true
                 {
-                    lista.Add(new Pessoa()
+                    pessoa = new Pessoa()
                     {
                         Id = reader.GetInt32(0),
-                        Nome = reader.GetString(1)
-                    });
+                        Nome = reader.GetString(1),
+                        Endereco = reader.GetString(2),
+                        Email = reader.GetString(3),
+                        Nascimento = reader.GetDateTime(4),
+                        Peso = reader.GetDouble(5)
+                    };
                 }
-                return View(lista);
+                else
+                {
+                    pessoa = null;
+                }
+                return PartialView("_Modal", pessoa);     --- 1º é o nome da View, 2º é da @model
             }
         }
     }
