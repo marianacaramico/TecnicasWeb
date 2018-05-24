@@ -82,3 +82,40 @@ $("#vao").html(dados);    --- jQuery << melhor
          ou
 var vao = document.getElementById("vao");
 vao.innerHTML = dados;    --- não executa <script>
+
+
+Exemplo de conexão com banco (dentro da DefaultController)
+
+public ActionResult ListarParaEdicao()
+{
+    using (SqlConnection conn = SqlConn.Abrir())
+    {
+        using (SqlCommand cmd = new SqlCommand(@"
+            SELECT Id, Nome
+            FROM tbPessoa
+            ORDER BY Nome ASC
+            ", conn))
+        {
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                List<Pessoa> lista = new List<Pessoa>();
+                while (reader.Read() == true)
+                {
+                    lista.Add(new Pessoa()
+                    {
+                        Id = reader.GetInt32(0),
+                        Nome = reader.GetString(1)
+                    });
+                }
+                return View(lista);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
