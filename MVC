@@ -31,7 +31,7 @@ nome da View (pasta dentro da View) tem que ser igual da Controller
 exemplo: View > Default ------ htmls dentro das pastas das Views
          Controllers > DefaultController.cs
 
-ActionResult retorna uma View()
+ActionResult retorna uma View() ou uma PartialView("_Modal")
 
 
 dentro da pasta Shared (que está dentro da pasta Views) cria uma página de layout MVC 5
@@ -99,7 +99,7 @@ public ActionResult ListarParaEdicao()
             cmd.Parameters.AddWithValue("@Id", id);
             using (SqlDataReader reader = cmd.ExecuteReader()) ---executa o "leitor" do banco(vê se no banco tem coisa)
             {
-                Pessoa pessoa;
+                Pessoa pessoa = null;
                 if (reader.Read() == true) ---se tiver coisa == true
                 {
                     pessoa = new Pessoa()
@@ -111,10 +111,6 @@ public ActionResult ListarParaEdicao()
                         Nascimento = reader.GetDateTime(4),
                         Peso = reader.GetDouble(5)
                     };
-                }
-                else
-                {
-                    pessoa = null;
                 }
                 return PartialView("_Modal", pessoa);     --- 1º é o nome da View, 2º é da @model
             }
