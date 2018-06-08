@@ -108,14 +108,14 @@
                                 <div class="row">
                                     <div class="col-md-12" style="display: flex;">
                                         <div class="col-md-3" style="display: flex; align-items: center">Nome: </div>
-                                        <div class="col-md-9"><input type="text" class="form-control" placeholder="Nome da pessoa"></div>
+                                        <div class="col-md-9"><input type="text" class="form-control" id="edit-nome" placeholder="Nome da pessoa"></div>
                                     </div>
                                 </div>
                                 <div><hr /></div>
                                 <div class="row">
                                         <div class="col-md-12" style="display: flex;">
                                             <div class="col-md-3" style="display: flex; align-items: center">E-mail: </div>
-                                            <div class="col-md-9"><input type="email" class="form-control" placeholder="E-mail da pessoa"></div>
+                                            <div class="col-md-9"><input type="email" class="form-control" id="edit-email" placeholder="E-mail da pessoa"></div>
                                         </div>
                                     </div>
                                     <div><hr /></div>
@@ -174,7 +174,7 @@
         function incluir(button){
             var modal = $("#modalInclude");
             modal.modal("show");
-            $("#form-include").submit(function(event){
+            $("#form-include").off().submit(function(event){
                 event.preventDefault();
                 var newTr = document.createElement("tr");
                 var newTds = [];
@@ -220,7 +220,16 @@
             $("#form-edit").submit(function(event){
                 event.preventDefault();
                 //editando imagem
-                var tdNome = document.getElementsByClassName("td-nome");
+                var trName = button.parentNode.parentNode;
+                var tdName = trName.getElementsByClassName("td-nome");
+                tdName = tdName[0].textContent;
+                var inputName = document.getElementById("edit-nome");
+                inputName.value = tdName;
+                var trEmail = button.parentNode.parentNode;
+                var tdEmail = trEmail.getElementsByClassEmail("td-email");
+                tdEmail = tdEmail[0].textContent;
+                var inputEmail = document.getElementById("edit-email");
+                inputEmail.value = tdEmail;
             });
             
         }
