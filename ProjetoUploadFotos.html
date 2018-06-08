@@ -96,7 +96,7 @@
     </div>
 
     <div id="modalEdit" class="modal fade" role="dialog">
-            <form>
+            <form id="form-edit">
                 <div class="modal-dialog">                     
                     <div class="modal-content">
                         <div class="modal-header">
@@ -180,15 +180,28 @@
                 var newTds = [];
                 for(var i=0; i<6; i++){
                     var td = document.createElement("td");
+                    td.setAttribute("align", "center");
                     newTds.push(td);
                 }
                 //newTds[0].textContent = document.getElementById("input-nome").value; ---id
                 //newTds[1].textContent = document.getElementById("input-nome").value; ---file
                 newTds[2].textContent = document.getElementById("input-nome").value;
+                newTds[2].className = "td-nome";
                 newTds[3].textContent = document.getElementById("input-email").value;
+                newTds[3].className = "td-email";
+                var botaoEditar = document.createElement("button");
+                botaoEditar.className = "btn botoes-tabela";
+                botaoEditar.innerHTML = "<i class='fas fa-edit'></i>";
+                botaoEditar.onclick = editar;
+                newTds[4].appendChild(botaoEditar);
                 /*newTds[4].textContent = document.getElementById("input-nome").value; ---botao editar
                     <td align="center"><button type="button" class="btn botoes-tabela" ><i class="fas fa-edit"></i></button></td>
                 */
+                var botaoExcluir = document.createElement("button");
+                botaoExcluir.className = "btn botoes-tabela";
+                botaoExcluir.innerHTML = "<i class='fas fa-trash-alt'></i>";
+                botaoExcluir.onclick = excluir;
+                newTds[5].appendChild(botaoExcluir);
                 /*newTds[5].textContent = document.getElementById("input-nome").value; ---botao excluir                
                     <td align="center"><button type="button" class="btn botoes-tabela" onclick="excluir(this)"><i class="fas fa-trash-alt"></i></button></td>
                 */
@@ -200,7 +213,20 @@
             });
         }
 
-        function excluir(button){
+        function editar(event){
+            var button = event.currentTarget;
+            var modal = $("#modalEdit");
+            modal.modal("show");
+            $("#form-edit").submit(function(event){
+                event.preventDefault();
+                //editando imagem
+                var tdNome = document.getElementsByClassName("td-nome");
+            });
+            
+        }
+
+        function excluir(event){
+            var button = event.currentTarget;
             var modal = $("#modalDelete");
             modal.modal("show");
             $("#btn-excluir").click(function(){
