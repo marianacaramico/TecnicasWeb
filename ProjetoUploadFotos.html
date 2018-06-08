@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Upload de Pessoas</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <style>
+        .tabela{
+            margin-top: 30px;
+        }
+
+        .botao-novo{
+            margin-top: 10px;
+        }
+
+        .botoes-tabela {
+            font-size: 20px;
+            background: transparent;
+            border: 1px solid transparent;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="col-md-12">        
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 tabela">
+                <div style="margin-bottom: 15px">
+                    <button type="button" id="novo" class="btn btn-default botao-novo" onclick="incluir()"><i class="fas fa-plus"></i> Novo</button>
+                </div>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col" class="text-center">Imagem</th>
+                            <th scope="col" class="text-center">Nome</th>
+                            <th scope="col" class="text-center">E-mail</th>
+                            <th scope="col" class="text-center">Editar</th>
+                            <th scope="col" class="text-center">Excluir</th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody id="body-tabela">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+      
+    <div id="modalInclude" class="modal fade" role="dialog">
+        <form id="form-include">
+            <div class="modal-dialog">                     
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Incluindo nova pessoa</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-md-12">
+                            <input type="file" id="input-file">
+                        </div>
+                        <div><hr /></div>
+                        <div class="row">
+                            <div class="col-md-12" style="display: flex;">
+                                <div class="col-md-2" style="display: flex; align-items: center">Nome: </div>
+                                <div class="col-md-10"><input type="text" class="form-control" id="input-nome" placeholder="Nome da pessoa"></div>
+                            </div>
+                        </div>
+                        <div><hr /></div>
+                        <div class="row">
+                            <div class="col-md-12" style="display: flex;">
+                                <div class="col-md-2" style="display: flex; align-items: center">E-mail: </div>
+                                <div class="col-md-10"><input type="email" class="form-control" id="input-email" placeholder="E-mail da pessoa"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Incluir</button>
+                            </div>
+                    </div>
+                    </div>
+                </div>          
+            </div>
+        </form>
+    </div>
+
+    <div id="modalEdit" class="modal fade" role="dialog">
+            <form>
+                <div class="modal-dialog">                     
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Editando a pessoa</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12" style="display: flex;">
+                                        <div class="col-md-3" style="display: flex; align-items: center">Nome: </div>
+                                        <div class="col-md-9"><input type="text" class="form-control" placeholder="Nome da pessoa"></div>
+                                    </div>
+                                </div>
+                                <div><hr /></div>
+                                <div class="row">
+                                        <div class="col-md-12" style="display: flex;">
+                                            <div class="col-md-3" style="display: flex; align-items: center">E-mail: </div>
+                                            <div class="col-md-9"><input type="email" class="form-control" placeholder="E-mail da pessoa"></div>
+                                        </div>
+                                    </div>
+                                    <div><hr /></div>
+                                <div>
+                                    <input type="file">
+                                </div>
+                                <div style="margin-top: 5px">
+                                    <input type="checkbox"> Excluir foto atual
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-success">Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>          
+                </div>
+            </form>
+        </div>
+
+        <div id="modalDelete" class="modal fade" role="dialog">
+                <form>
+                    <div class="modal-dialog">                     
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Excluindo a pessoa</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Deseja mesmo excluir esta pessoa?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-danger" id="btn-excluir" data-dismiss="modal">Excluir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>          
+                    </div>
+                </form>
+            </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        
+        var tabela = document.getElementById("body-tabela");
+
+        function incluir(button){
+            var modal = $("#modalInclude");
+            modal.modal("show");
+            $("#form-include").submit(function(event){
+                event.preventDefault();
+                var newTr = document.createElement("tr");
+                var newTds = [];
+                for(var i=0; i<6; i++){
+                    var td = document.createElement("td");
+                    newTds.push(td);
+                }
+                //newTds[0].textContent = document.getElementById("input-nome").value; ---id
+                //newTds[1].textContent = document.getElementById("input-nome").value; ---file
+                newTds[2].textContent = document.getElementById("input-nome").value;
+                newTds[3].textContent = document.getElementById("input-email").value;
+                /*newTds[4].textContent = document.getElementById("input-nome").value; ---botao editar
+                    <td align="center"><button type="button" class="btn botoes-tabela" ><i class="fas fa-edit"></i></button></td>
+                */
+                /*newTds[5].textContent = document.getElementById("input-nome").value; ---botao excluir                
+                    <td align="center"><button type="button" class="btn botoes-tabela" onclick="excluir(this)"><i class="fas fa-trash-alt"></i></button></td>
+                */
+                for(var j=0; j<6; j++){
+                    newTr.appendChild(newTds[j]);
+                }
+                tabela.appendChild(newTr);
+                modal.modal("hide");
+            });
+        }
+
+        function excluir(button){
+            var modal = $("#modalDelete");
+            modal.modal("show");
+            $("#btn-excluir").click(function(){
+                tabela.removeChild(button.parentNode.parentNode);
+            });
+        }
+
+    </script>
+
+</body>
+</html>
